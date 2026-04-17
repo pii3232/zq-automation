@@ -1,0 +1,154 @@
+[
+  {
+    "name": "发现",
+    "description": "在指定范围内查找图片并点击",
+    "script": "if last_x == 0 and last_y == 0:\n    coords = image.find(image_path, timeout=10)\nelse:\n    coords = image.find_image_in_range(image_path, last_x, last_y, search_range=300, timeout=10)\nif coords:\n    time.sleep(random.uniform(0.3, 0.5))\n    mouse.click(coords[0], coords[1])\n    last_x, last_y = coords",
+    "parameters": [
+      "image_path"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "查找",
+    "description": "在全屏范围查找图片并点击",
+    "script": "coords = image.find(image_path, timeout=10)\nif coords:\n    time.sleep(random.uniform(0.3, 0.5))\n    mouse.click(coords[0], coords[1])\n    last_x, last_y = coords",
+    "parameters": [
+      "image_path"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "点击",
+    "description": "鼠标左键点击指定坐标",
+    "script": "mouse.click(x, y)\nlast_x, last_y = x, y",
+    "parameters": [
+      "x",
+      "y"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "双击",
+    "description": "鼠标左键双击指定坐标",
+    "script": "mouse.double_click(x, y)\nlast_x, last_y = x, y",
+    "parameters": [
+      "x",
+      "y"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "拖到",
+    "description": "鼠标从坐标1拖动到坐标2",
+    "script": "mouse.drag_to(x1, y1, x2, y2)\nlast_x, last_y = x2, y2",
+    "parameters": [
+      "x1",
+      "y1",
+      "x2",
+      "y2"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "滑动",
+    "description": "从坐标1滑动到坐标2",
+    "script": "mouse.scroll(x1, y1, x2, y2)\nlast_x, last_y = x2, y2",
+    "parameters": [
+      "x1",
+      "y1",
+      "x2",
+      "y2"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "键盘输入",
+    "description": "输入文本",
+    "script": "keyboard.type(text)",
+    "parameters": [
+      "text"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "延时",
+    "description": "延时等待一段时间（单位：毫秒）",
+    "script": "import time\ntime.sleep(delay_ms / 1000.0)",
+    "parameters": [
+      "delay_ms"
+    ],
+    "created_at": "2026-03-23 19:36:43"
+  },
+  {
+    "name": "多图",
+    "description": "查找多张图片,点击第一个找到的",
+    "script": "\nimport os\n# 多图关键词:查找多张图片,点击第一个找到的\nimage_paths = [p.strip() for p in image_paths.split('|') if p.strip()]\nif not image_paths:\n    print(\"错误:没有提供图片路径\")\nelse:\n    # 构建完整的图片路径\n    full_paths = []\n    for img_path in image_paths:\n        if not os.path.isabs(img_path):\n            # 相对路径,添加到pic目录\n            full_path = os.path.join(config.pic_directory, img_path)\n        else:\n            full_path = img_path\n        full_paths.append(full_path)\n    \n    # 调用多图查找和点击\n    result = mouse.find_and_click_multiple_images(full_paths, timeout=10)\n    if result['success']:\n        print(f\"成功:{result['message']}\")\n        # 保存坐标供后续使用\n        last_x = result['x']\n        last_y = result['y']\n    else:\n        print(f\"失败:{result['error']}\")\n",
+    "parameters": [
+      "image_paths"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "间隔",
+    "description": "等待指定时间(毫秒),不输入参数使用全局设置",
+    "script": "\nimport time\n# 间隔关键词:等待指定时间(毫秒)\ninterval_ms = interval_ms.strip() if interval_ms else ''\nif not interval_ms:\n    # 使用全局间隔时间\n    wait_time = config.global_interval / 1000.0\n    print(f\"等待 {config.global_interval}ms (使用全局设置)\")\nelse:\n    try:\n        wait_time = int(interval_ms) / 1000.0\n        print(f\"等待 {interval_ms}ms\")\n    except:\n        wait_time = config.global_interval / 1000.0\n        print(f\"参数错误,使用全局设置:{config.global_interval}ms\")\n\ntime.sleep(wait_time)\n",
+    "parameters": [
+      "interval_ms"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "快找",
+    "description": "快速找图并点击,只使用全局相似度单次查找,找不到立即结束",
+    "script": "\nimport os\nimport time\n# 快找关键词:快速找图并点击,只使用全局相似度单次查找\nimage_path = image_path.strip() if image_path else ''\nif not image_path:\n    print(\"错误:没有提供图片路径\")\nelse:\n    # 构建完整的图片路径\n    if not os.path.isabs(image_path):\n        full_path = os.path.join(config.pic_directory, image_path)\n    else:\n        full_path = image_path\n    \n    # 使用trigger模式:只进行单次查找,不进行多算法多相似度轮换\n    location = image.find_image(full_path, timeout=0, confidence=config.global_similarity/100.0, mode='trigger')\n    \n    if location:\n        print(f\"快找成功: {image_path} at ({location[0]}, {location[1]})\")\n        mouse.click(location[0], location[1])\n    else:\n        print(f\"快找失败: 未找到 {image_path}\")\n",
+    "parameters": [
+      "image_path"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "找图",
+    "description": "查找图片并点击,只使用全局相似度单次查找,找不到立即结束",
+    "script": "\nimport pyautogui\nimport time\n# 找图关键词:查找图片并点击,只使用全局相似度单次查找\nimage_path = image_path.strip() if image_path else ''\nif image_path:\n    try:\n        pic_dir = config.pic_directory\n        if not image_path.startswith(pic_dir):\n            full_path = os.path.join(pic_dir, image_path)\n        else:\n            full_path = image_path\n        \n        confidence = config.global_similarity / 100.0\n        \n        # 使用trigger模式:只进行单次查找,不进行多算法多相似度轮换\n        coords = image.find_image(full_path, timeout=0, confidence=confidence, mode='trigger')\n        \n        if coords:\n            if len(coords) == 2:\n                center_x, center_y = coords\n            else:\n                center_x = coords[0] + coords[2] // 2\n                center_y = coords[1] + coords[3] // 2\n            pyautogui.click(center_x, center_y)\n            print(f\"找图成功: {image_path} at ({center_x}, {center_y})\")\n        else:\n            print(f\"找图失败: 未找到 {image_path}\")\n    except Exception as e:\n        print(f\"找图失败: {e}\")\nelse:\n    print(\"错误:未提供图片路径\")\n",
+    "parameters": [
+      "image_path"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "右击",
+    "description": "在指定坐标右击,参数格式:x,y",
+    "script": "\nimport pyautogui\n# 右击关键词:在指定坐标右击\nparams = params.strip() if params else ''\nif params:\n    try:\n        parts = params.split(',')\n        x = int(parts[0].strip())\n        y = int(parts[1].strip()) if len(parts) > 1 else 0\n        pyautogui.rightClick(x, y)\n        print(f\"右击坐标: ({x}, {y})\")\n    except Exception as e:\n        print(f\"右击失败: {e}\")\nelse:\n    print(\"错误:未提供坐标参数\")\n",
+    "parameters": [
+      "params"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "拖动",
+    "description": "从起点拖动到终点,参数格式:start_x,start_y,end_x,end_y",
+    "script": "\nimport pyautogui\nimport time\n# 拖动关键词:从起点拖动到终点\nparams = params.strip() if params else ''\nif params:\n    try:\n        parts = params.split(',')\n        start_x = int(parts[0].strip())\n        start_y = int(parts[1].strip()) if len(parts) > 1 else 0\n        end_x = int(parts[2].strip()) if len(parts) > 2 else start_x\n        end_y = int(parts[3].strip()) if len(parts) > 3 else start_y\n        \n        pyautogui.moveTo(start_x, start_y)\n        time.sleep(0.05)\n        pyautogui.drag(end_x - start_x, end_y - start_y, duration=0.5)\n        print(f\"拖动: ({start_x}, {start_y}) -> ({end_x}, {end_y})\")\n    except Exception as e:\n        print(f\"拖动失败: {e}\")\nelse:\n    print(\"错误:未提供坐标参数\")\n",
+    "parameters": [
+      "params"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "滚动",
+    "description": "鼠标滚动,参数格式:x,y,dy(dy正数向上,负数向下)",
+    "script": "\nimport pyautogui\n# 滚动关键词:鼠标滚动\nparams = params.strip() if params else ''\nif params:\n    try:\n        parts = params.split(',')\n        x = int(parts[0].strip())\n        y = int(parts[1].strip()) if len(parts) > 1 else 0\n        dy = int(parts[2].strip()) if len(parts) > 2 else 0\n        pyautogui.scroll(dy, x, y)\n        direction = \"向上\" if dy > 0 else \"向下\"\n        print(f\"滚动: ({x}, {y}) {direction} {abs(dy)} 单位\")\n    except Exception as e:\n        print(f\"滚动失败: {e}\")\nelse:\n    print(\"错误:未提供参数\")\n",
+    "parameters": [
+      "params"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  },
+  {
+    "name": "按键",
+    "description": "模拟按键,参数为按键名称",
+    "script": "\nimport pyautogui\n# 按键关键词:模拟按键\nkey = key.strip() if key else ''\nif key:\n    try:\n        if len(key) == 1:\n            pyautogui.press(key)\n        else:\n            key_name = key.replace('Key.', '').lower()\n            pyautogui.press(key_name)\n        print(f\"按键: {key}\")\n    except Exception as e:\n        print(f\"按键失败: {e}\")\nelse:\n    print(\"错误:未提供按键参数\")\n",
+    "parameters": [
+      "key"
+    ],
+    "created_at": "2026-03-23 19:36:44"
+  }
+]

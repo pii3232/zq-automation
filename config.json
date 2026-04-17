@@ -1,0 +1,18 @@
+{
+  "server_url": "https://9793tg1lo456.vicp.fun",
+  "local_server": "192.168.1.100:5000",
+  "direct_connect": {},
+  "use_direct": false,
+  "use_local": false,
+  "username": "",
+  "password": "",
+  "save_password": false,
+  "auto_login": false,
+  "workgroup_id": "",
+  "workgroup_name": "",
+  "workgroup_role": "",
+  "sync_dir": "",
+  "pause_until": null,
+  "global_interval": 10,
+  "global_similarity": 85
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "coords": [
+      {
+        "raw": "653.267",
+        "x": 653.0,
+        "y": 267.0
+      }
+    ],
+    "enabled": true,
+    "exec_mode": "scheduled",
+    "exec_time": "00:51:11",
+    "name": "命令1",
+    "status": "completed",
+    "template_name": "",
+    "workflows": [
+      "调动"
+    ]
+  },
+  {
+    "coords": [
+      {
+        "raw": "551.211",
+        "x": 551.0,
+        "y": 211.0
+      }
+    ],
+    "enabled": true,
+    "exec_mode": "scheduled",
+    "exec_time": "00:52:28",
+    "name": "命令2",
+    "status": "completed",
+    "template_name": "",
+    "workflows": [
+      "走到"
+    ]
+  },
+  {
+    "coords": [
+      {
+        "raw": "561.198",
+        "x": 561.0,
+        "y": 198.0
+      }
+    ],
+    "enabled": true,
+    "exec_mode": "scheduled",
+    "exec_time": "00:53:46",
+    "name": "命令3",
+    "status": "completed",
+    "template_name": "",
+    "workflows": [
+      "打地"
+    ]
+  },
+  {
+    "coords": [
+      {
+        "raw": "560.198",
+        "x": 560.0,
+        "y": 198.0
+      }
+    ],
+    "enabled": true,
+    "exec_mode": "scheduled",
+    "exec_time": "00:54:05",
+    "name": "命令4",
+    "status": "completed",
+    "template_name": "",
+    "workflows": [
+      "攻城"
+    ]
+  }
+]

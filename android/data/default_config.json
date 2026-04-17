@@ -1,0 +1,39 @@
+{
+  "server": {
+    "peanut_direct_ip": "192.168.1.100",
+    "peanut_direct_port": 8080,
+    "lan_direct_ip": "192.168.1.100",
+    "lan_direct_port": 8080,
+    "peanut_domain": "example.vicp.fun",
+    "peanut_domain_port": 8080,
+    "connection_priority": ["peanut_direct", "lan_direct", "peanut_domain"],
+    "timeout": 10,
+    "retry_count": 3
+  },
+  "image_recognition": {
+    "default_threshold": 0.8,
+    "multi_find_thresholds": [0.9, 0.8, 0.7],
+    "match_method": "TM_CCOEFF_NORMED",
+    "screenshot_delay": 0.5
+  },
+  "float_window": {
+    "button_size_dp": 25,
+    "button_color": "#4CAF50",
+    "position_x": 0,
+    "position_y": 200
+  },
+  "activation": {
+    "trial_hours_per_day": 1,
+    "sync_interval_hours": 24,
+    "pause_hours": 3
+  },
+  "workgroup": {
+    "sync_interval_minutes": 30,
+    "max_commands": 100
+  },
+  "ui": {
+    "theme": "dark",
+    "font_size": 14,
+    "log_max_lines": 100
+  }
+}

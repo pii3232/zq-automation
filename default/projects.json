@@ -1,0 +1,24 @@
+[
+  {
+    "name": "default",
+    "path": "default",
+    "pic_dir": "D:/3ZDZS-TX2/3MCWB\\pic",
+    "version": "1.0.0",
+    "program": "",
+    "resolution": "1920*1080",
+    "notes": "",
+    "created_at": "2026-02-23 16:02:16",
+    "records_dir": "default\\records"
+  },
+  {
+    "name": "三谋畅玩版",
+    "path": "E:\\3ZDZS-TX3\\3MCWB",
+    "pic_dir": "E:\\3ZDZS-TX3\\3MCWB\\pic",
+    "version": "1.0.0",
+    "program": "https://res.yctech100.com/desk/sanmoudesk.zip",
+    "resolution": "1280*720",
+    "notes": "",
+    "created_at": "2026-02-24 14:19:32",
+    "unpacked_at": "2026-02-24 17:13:19"
+  }
+]

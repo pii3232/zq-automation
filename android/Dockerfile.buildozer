@@ -1,0 +1,3 @@
+FROM kivy/buildozer
+RUN git config --global url."https://ghproxy.com/https://github.com/".insteadOf "https://github.com/" && \
+    git config --global url."https://ghproxy.com/https://gitlab.com/".insteadOf "https://gitlab.com/"

@@ -1,0 +1,3 @@
+# ZQ Automation Pictures Manifest
+# 此文件用于检测APK assets中是否包含Pictures目录
+# 版本: 1.0

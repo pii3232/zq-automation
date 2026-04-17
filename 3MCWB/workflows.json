@@ -1,0 +1,165 @@
+[
+  {
+    "name": "调动",
+    "description": "调动工作流：按指定流程执行调动操作",
+    "steps": [
+      {
+        "keyword": "找图",
+        "params": "1-CC.png"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "找图",
+        "params": "1-TC.png"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "找图",
+        "params": "1-TC.png"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "任意指令",
+        "code": "import os\nimport time\nimport cv2\nimport numpy as np\nimport pyautogui\n\n# 查找1-HC.png图片的条件判断逻辑\nimage_path = os.path.join(config.pic_directory, '1-HC.png')\nfound = False\n\nif os.path.exists(image_path):\n    print('检查图片1-HC.png是否存在...')\n    # 尝试查找图片\n    template = cv2.imread(image_path)\n    if template is not None:\n        # 截取当前屏幕\n        screenshot = pyautogui.screenshot()\n        screen_np = np.array(screenshot)\n        screen_cv2 = cv2.cvtColor(screen_np, cv2.COLOR_RGB2BGR)\n        \n        # 模板匹配\n        result = cv2.matchTemplate(screen_cv2, template, cv2.TM_CCOEFF_NORMED)\n        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)\n        \n        # 相似度阈值0.8\n        if max_val >= 0.8:\n            print('找到图片1-HC.png，跳过点击操作')\n            found = True\n        else:\n            print(f'未找到图片1-HC.png，相似度: {max_val:.3f}')\n    else:\n        print('无法读取图片1-HC.png')\nelse:\n    print('图片1-HC.png不存在')\n\n# 如果未找到图片，执行点击和等待\nif not found:\n    print('执行点击操作: (67, 700)')\n    mouse.click(67, 700)\n    print('等待2秒...')\n    time.sleep(2)"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "36,522"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "978,718"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "键盘输入",
+        "params": "${坐标参数}"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "1240,708"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "点击",
+        "params": "1158,718"
+      },
+      {
+        "keyword": "间隔",
+        "params": "2000"
+      },
+      {
+        "keyword": "点击",
+        "params": "666,386"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "找图",
+        "params": "1-DD.png"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "找图",
+        "params": "1-CZ.png"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      },
+      {
+        "keyword": "找图",
+        "params": "1-CZ.png"
+      },
+      {
+        "keyword": "间隔",
+        "params": "1000"
+      }
+    ],
+    "created_at": "2026-03-23 23:31:28"
+  }
+]

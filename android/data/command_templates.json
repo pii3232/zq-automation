@@ -1,0 +1,54 @@
+{
+  "templates": {
+    "调动": {
+      "description": "调动：执行Python脚本完成操作",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "1-DD.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "走到": {
+      "description": "走到：按新流程执行图片查找点击和文本参数输入",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-QD.png", "1-QW.png", "2-XJ.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "预约": {
+      "description": "预约：点击指定坐标并执行工作流",
+      "has_auto_input": false,
+      "images": ["4-JJ2.png", "3-YY.png", "3-YY2.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "集结": {
+      "description": "集结：点击指定坐标并执行工作流",
+      "has_auto_input": false,
+      "images": ["4-JJ2.png", "4-JJ3.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "集火": {
+      "description": "集火：点击坐标并自动输入坐标参数",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "1-GZ.png", "6-gc.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "攻城": {
+      "description": "攻城：点击坐标并自动输入坐标参数",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "6-gc.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "打地": {
+      "description": "打地：按新流程执行图片查找点击和文本参数输入",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "1-GZ.png", "1-HC.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "翻红地": {
+      "description": "翻红地：查找红地图片并循环执行",
+      "has_auto_input": false,
+      "images": ["8-HDL.png", "8-HDL2.png", "8-HDL3.png", "8-HDM.png", "8-HDM2.png", "8-HDM3.png", "8-HDS.png", "8-HDS2.png", "8-HDS3.png", "8-HDT.png", "8-HDT2.png", "8-HDT3.png", "8HY1.png", "8HY2.png", "8HY3.png", "8HY4.png", "8HY5.png", "8HY6.png", "8HY7.png", "8HY8.png", "8HY9.png", "8HY10.png", "1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "1-ST2.png", "1-GZ.png", "6-gc.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    },
+    "铺路": {
+      "description": "铺路：按顺序遍历多个坐标并执行工作流",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "1-GZ.png", "1-HC.png", "1-YJBB.png", "1-CZ.png", "9-JXCZ.png", "9-QD.png"]
+    },
+    "驻守": {
+      "description": "驻守：执行Python脚本完成操作",
+      "has_auto_input": true,
+      "images": ["1-TC2.png", "1-TC1.png", "1-CC.png", "1-ST.png", "1-DW.png", "1-QD.png", "1-QW.png", "10-ZS.png", "1-YJBB.png", "1-CZ.png", "9-QD.png"]
+    }
+  }
+}

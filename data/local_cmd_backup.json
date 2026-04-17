@@ -1,0 +1,21 @@
+{
+  "cmd_list": [
+    {
+      "name": "命令1",
+      "coords": [
+        {
+          "x": 551.0,
+          "y": 211.0,
+          "label": "坐标1",
+          "raw": "551.211"
+        }
+      ],
+      "workflows": [
+        "走到"
+      ],
+      "auto_input": false,
+      "exec_mode": "scheduled",
+      "exec_time": "02:22:00",
+      "status": "pending",
+      "enabled": true,
+      "countdown_start_time": 

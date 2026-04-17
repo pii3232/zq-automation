@@ -1,0 +1,28 @@
+{
+  "username": "",
+  "save_password": false,
+  "activation_pii3232": "2026-04-24T17:04:39.675371",
+  "daily_trial_pii3232": {
+    "date": null,
+    "remaining_seconds": 3600,
+    "flag": null,
+    "start_time": null,
+    "first_run_today": false
+  },
+  "daily_trial_pii3232h": {
+    "date": "2026-04-12",
+    "remaining_seconds": 3600,
+    "flag": "12002ee55d49379209c64dd552e4a918",
+    "start_time": null,
+    "first_run_today": true
+  },
+  "activation_pii3232h": "2026-05-12T10:13:05.058284",
+  "activation_pii3232b": "2026-04-24T16:47:14.861628",
+  "daily_trial_pii3232b": {
+    "date": null,
+    "remaining_seconds": 3600,
+    "flag": null,
+    "start_time": null,
+    "first_run_today": false
+  }
+}

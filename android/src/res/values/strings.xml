@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZQ Automation</string>
+    <string name="accessibility_service_description">ZQ自动化服务，用于执行图片识别和自动点击操作。需要此服务才能正常使用自动化功能。</string>
+    
+    <!-- 命令模板名称 -->
+    <string name="cmd_diaodong">调动</string>
+    <string name="cmd_zoudao">走到</string>
+    <string name="cmd_yuyue">预约</string>
+    <string name="cmd_jijie">集结</string>
+    <string name="cmd_jihuo">集火</string>
+    <string name="cmd_gongcheng">攻城</string>
+    <string name="cmd_dadi">打地</string>
+    <string name="cmd_fanhongdi">翻红地</string>
+    <string name="cmd_pulu">铺路</string>
+    <string name="cmd_zhushou">驻守</string>
+    
+    <!-- 状态文字 -->
+    <string name="status_ready">就绪</string>
+    <string name="status_running">执行中</string>
+    <string name="status_paused">已暂停</string>
+    <string name="status_error">错误</string>
+    
+    <!-- 权限引导 -->
+    <string name="permission_accessibility">无障碍服务</string>
+    <string name="permission_accessibility_desc">用于执行自动点击和滑动操作</string>
+    <string name="permission_overlay">悬浮窗权限</string>
+    <string name="permission_overlay_desc">用于显示悬浮控制按钮</string>
+    <string name="permission_storage">存储权限</string>
+    <string name="permission_storage_desc">用于保存截图和日志</string>
+    <string name="permission_camera">相机权限</string>
+    <string name="permission_camera_desc">用于截图功能</string>
+</resources>

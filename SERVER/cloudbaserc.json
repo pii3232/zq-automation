@@ -1,0 +1,6 @@
+{
+  "envId": "pii3232-8g70hil397fd9f2e",
+  "cloudrun": {
+    "name": "activation-server"
+  }
+}

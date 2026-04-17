@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# 数据库和日志
+*.db
+instance/
+audit_logs/
+backups/
+*.log
+*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# 环境变量
+.env
+.env.*
+
+# 测试
+test_*.py
+.pytest_cache/
+
+# CodeBuddy
+.codebuddy/
+
+# 其他不必要的文件
+*.bat
+*.sh
+README.md

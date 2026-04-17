@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task_1769589034",
+    "status": "completed",
+    "schedule_time": null,
+    "delay_minutes": null,
+    "repeat_count": 1,
+    "repeat_type": "none",
+    "executed_count": 0,
+    "created_at": "2026-01-28 16:30:34",
+    "workflow_items": [
+      {
+        "workflow": "手动录制_20260128_162958",
+        "delay_minutes": 0
+      }
+    ]
+  }
+]
