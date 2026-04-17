@@ -46,12 +46,12 @@ jobs:
     - name: Pre-setup Android SDK tools (legacy)
       run: |
         # Create buildozer expected directory structure
-        mkdir -p /home/runner/.buildozer/android/platform/android-sdk/tools
+        mkdir -p /home/runner/.buildozer/android/platform/android-sdk
         
         # Download SDK Tools (legacy version that buildozer expects)
         cd /tmp
         wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O sdk-tools.zip
-        unzip -q sdk-tools.zip -d /home/runner/.buildozer/android/platform/android-sdk/tools
+        unzip -q sdk-tools.zip -d /home/runner/.buildozer/android/platform/android-sdk
         
         # Accept licenses
         mkdir -p /home/runner/.buildozer/android/platform/android-sdk/licenses
