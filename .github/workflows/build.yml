@@ -7,10 +7,6 @@ on:
     branches: [ main, master ]
   workflow_dispatch:  # 允许手动触发
 
-env:
-  ANDROID_HOME: /home/runner/.buildozer/android/platform/android-sdk
-  ANDROID_SDK_ROOT: /home/runner/.buildozer/android/platform/android-sdk
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,26 +36,31 @@ jobs:
           libgstreamer1.0-dev gstreamer1.0-plugins-base \
           gstreamer1.0-plugins-good autoconf libtool \
           pkg-config libncurses5-dev libncursesw5-dev cmake \
-          libffi-dev libssl-dev automake zip unzip
+          libffi-dev libssl-dev automake zip unzip wget
     
     - name: Install Buildozer
       run: |
         python -m pip install --upgrade pip setuptools wheel
         pip install buildozer kivy opencv-python-headless numpy pyjnius requests pillow cython
     
-    - name: Pre-download Android SDK and NDK
+    - name: Pre-setup Android SDK tools (legacy)
       run: |
-        mkdir -p $ANDROID_HOME/cmdline-tools
+        # Create buildozer expected directory structure
+        mkdir -p /home/runner/.buildozer/android/platform/android-sdk/tools
+        
+        # Download SDK Tools (legacy version that buildozer expects)
         cd /tmp
-        wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
-        unzip -q cmdline-tools.zip
-        mv cmdline-tools $ANDROID_HOME/cmdline-tools/latest
+        wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O sdk-tools.zip
+        unzip -q sdk-tools.zip -d /home/runner/.buildozer/android/platform/android-sdk/tools
         
-        # Accept all licenses
-        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+        # Accept licenses
+        mkdir -p /home/runner/.buildozer/android/platform/android-sdk/licenses
+        echo -e "\n24333f8a63b92e6393f988463d38373f9819b9a7" > /home/runner/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+        echo -e "\n84831b9409646a948e89b2d2e4d5c849a0f9a6b6" >> /home/runner/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+        echo -e "\nd975f75a33e5f8a2b2e8c6ae0fe7ee0df5b9440a" > /home/runner/.buildozer/android/platform/android-sdk/licenses/intel-android-extra-license
         
-        # Install required components
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-31"
+        # Install required SDK components
+        yes | /home/runner/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-31"
     
     - name: Build APK
       working-directory: android
