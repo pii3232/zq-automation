@@ -23,14 +23,7 @@ jobs:
     - name: Install Java 8 for SDK tools
       run: |
         sudo apt-get update
-        sudo apt-get install -y openjdk-8-jdk
-        echo "JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> $GITHUB_ENV
-    
-    - name: Set up Java 17 for build
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+        sudo apt-get install -y openjdk-8-jdk openjdk-17-jdk
     
     - name: Install system dependencies
       run: |
@@ -71,7 +64,7 @@ jobs:
     - name: Build APK
       working-directory: android
       env:
-        JAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64
+        JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
       run: |
         buildozer android debug
     
