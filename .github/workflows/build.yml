@@ -37,6 +37,11 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         pip install buildozer kivy opencv-python-headless numpy pyjnius requests pillow cython
     
+    - name: Accept Android SDK licenses
+      run: |
+        mkdir -p ~/.buildozer/android/platform/android-sdk/cmdline-tools
+        yes | sdkmanager --licenses || true
+    
     - name: Build APK
       working-directory: android
       run: |
