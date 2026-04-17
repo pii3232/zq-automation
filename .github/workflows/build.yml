@@ -59,8 +59,7 @@ jobs:
         echo -e "\n84831b9409646a948e89b2d2e4d5c849a0f9a6b6" >> /home/runner/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
         echo -e "\nd975f75a33e5f8a2b2e8c6ae0fe7ee0df5b9440a" > /home/runner/.buildozer/android/platform/android-sdk/licenses/intel-android-extra-license
         
-        # Install required SDK components (using Java 11)
-        export JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.26-4/x64
+        # Install required SDK components (using Java 11 from setup-java)
         yes | /home/runner/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-31"
     
     - name: Build APK
