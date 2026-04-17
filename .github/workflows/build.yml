@@ -20,15 +20,20 @@ jobs:
       with:
         python-version: '3.10'
     
-    - name: Set up Java 11 for Android SDK
+    - name: Install Java 8 for SDK tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openjdk-8-jdk
+        echo "JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> $GITHUB_ENV
+    
+    - name: Set up Java 17 for build
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '11'
+        java-version: '17'
     
     - name: Install system dependencies
       run: |
-        sudo apt-get update
         sudo apt-get install -y \
           build-essential git ffmpeg libsdl2-dev libsdl2-image-dev \
           libsdl2-mixer-dev libsdl2-ttf-dev libportmidi-dev \
@@ -36,7 +41,7 @@ jobs:
           libgstreamer1.0-dev gstreamer1.0-plugins-base \
           gstreamer1.0-plugins-good autoconf libtool \
           pkg-config libncurses5-dev libncursesw5-dev cmake \
-          libffi-dev libssl-dev automake zip unzip wget openjdk-17-jdk
+          libffi-dev libssl-dev automake zip unzip wget
     
     - name: Install Buildozer
       run: |
@@ -59,7 +64,8 @@ jobs:
         echo -e "\n84831b9409646a948e89b2d2e4d5c849a0f9a6b6" >> /home/runner/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
         echo -e "\nd975f75a33e5f8a2b2e8c6ae0fe7ee0df5b9440a" > /home/runner/.buildozer/android/platform/android-sdk/licenses/intel-android-extra-license
         
-        # Install required SDK components (using Java 11 from setup-java)
+        # Install required SDK components (using Java 8)
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         yes | /home/runner/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-31"
     
     - name: Build APK
